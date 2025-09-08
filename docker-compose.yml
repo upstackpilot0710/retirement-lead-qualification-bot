@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: retirement-bot-db
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - app-network
+
+  app:
+    build: .
+    container_name: retirement-bot-app
+    ports:
+      - "5000:5000"
+      - "5173:5173"
+    environment:
+      MONGODB_URI: mongodb://admin:password@mongodb:27017/retirement-bot?authSource=admin
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      ELEVENLABS_API_KEY: ${ELEVENLABS_API_KEY}
+      CALENDLY_API_TOKEN: ${CALENDLY_API_TOKEN}
+      CALENDLY_USERNAME: ${CALENDLY_USERNAME}
+      CRM_WEBHOOK_URL: ${CRM_WEBHOOK_URL}
+      NODE_ENV: development
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  app-network:
+    driver: bridge
