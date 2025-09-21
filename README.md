@@ -5,12 +5,19 @@ An AI-powered conversational assistant that qualifies prospects, educates them a
 ## Features
 
 ✅ **Conversational AI Assistant** - OpenAI-powered bot that guides prospects through a 15-block qualification workflow
+
 ✅ **Voice Integration** - ElevenLabs text-to-speech for audio responses
+
 ✅ **Smart Qualification** - Automatically qualifies leads based on retirement assets ($1M-$10M target range)
+
 ✅ **Calendar Integration** - Calendly booking for strategy calls
+
 ✅ **Lead Capture** - Automatic CRM data capture
+
 ✅ **Follow-up Automation** - Scheduled email sequences for non-booked leads
+
 ✅ **Tax Education** - Explains "Tax Avalanche" concept and visualizations
+
 ✅ **Responsive Design** - Works on desktop and mobile devices
 
 ## Tech Stack
